@@ -1,0 +1,14 @@
+{
+  "name": "fsr-airtable",
+  "version": "1.0.0",
+  "description": "Pulling Filed service report from airtable ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "praisejah",
+  "license": "ISC",
+  "dependencies": {
+    "airtable": "^0.12.2"
+  }
+}
