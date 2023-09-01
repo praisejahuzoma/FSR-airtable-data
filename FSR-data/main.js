@@ -76,3 +76,24 @@ base(table).select({}).eachPage((records, fetchNextPage) => {
         }
     }
 });
+
+// Group records by year and month
+// This function takes an array of records and organizes them into a nested structure
+// where records are grouped by year and month, facilitating data analysis and display.
+function groupRecordsByYearAndMonth(records) {
+    const yearMonthSections = {};
+
+    records.forEach(record => {
+        const year = record.fields['Year'];
+        
+        if (!yearMonthSections[year]) {
+            yearMonthSections[year] = {};
+        }
+        
+        const month = record.fields['Month'];
+        yearMonthSections[year][month] = yearMonthSections[year][month] || [];
+        yearMonthSections[year][month].push(record);
+    });
+
+    return yearMonthSections;
+}
