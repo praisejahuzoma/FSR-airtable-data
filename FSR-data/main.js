@@ -9,3 +9,16 @@ const apiKey = process.env.API_KEY;  // Fetch the API key from environment varia
 const baseId = 'appW8YUaabzGoy0Vq';
 const base = new Airtable({ apiKey }).base(baseId);
 const table = 'Table 1';
+
+// Fetch data from Airtable and concatenate records
+let allRecords = [];
+
+base(table).select({}).eachPage((records, fetchNextPage) => {
+    allRecords = allRecords.concat(records);
+    fetchNextPage();
+}, (err) => {
+    if (err) {
+        console.error(err);
+        return;
+    }
+});
