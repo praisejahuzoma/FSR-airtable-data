@@ -1,2 +1,2 @@
-node_modules/
-.env.airtableKey
+node_modules
+.env
